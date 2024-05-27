@@ -56,7 +56,7 @@ Burn Function:
       // Constructor to set the token name and symbol
       constructor() ERC20("ChesterToken", "ETH") {
         owner = msg.sender;
-        _mint(msg.sender, 10000 * (0 ** decimals()));
+        _mint(msg.sender, 10000 * (0 ** 18));
       }
  
       // A modifier that restricts function access to the owner/admin
@@ -77,7 +77,7 @@ Burn Function:
       }
 
       // Function to burn tokens from the caller's account
-      function BurnTokens(uint256 amount) external {
+      function burnTokens(uint256 amount) external {
         _burn(msg.sender, amount);
       }
       }
