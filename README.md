@@ -38,4 +38,43 @@ Burn Function:
 
 * destroyTokens(uint256 amount): This method enables any user to burn a specific number of tokens from their own account.
 
+ 
+    // SPDX-License-Identifier: MIT
+    pragma solidity >=0.6.12 <0.9.0;
+
+    import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+    import "@openzeppelin/contracts/access/Ownable.sol";
+
+    contract ChesterToken is ERC20 { 
+    address public owner;
+
+    // Constructor to set the token name and symbol
+    constructor() ERC20("ChesterToken", "ETH") {
+        owner = msg.sender;
+        _mint(msg.sender, 10000 * (0 ** decimals()));
+    }
+
+    // A modifier that restricts function access to the owner/admin
+    modifier onlyAdmin() {
+        require(msg.sender == owner, "Caller is not the owner");
+        _;
+    }
+
+    // Function to mint new tokens, restricted to the owner
+    function ChesterTokens(address Address1_recipient, uint256 amount) external onlyAdmin {
+        _mint(Address1_recipient, amount);
+    }
+
+    // Function to transfer tokens, not needed to override transfer function from ERC20
+    function transferTokens(address Address2_recipient, uint256 amount) external returns (bool) {
+        _transfer(msg.sender, Address2_recipient, amount);
+        return true;
+    }
+
+    // Function to burn tokens from the caller's account
+    function destroyTokens(uint256 amount) external {
+        _burn(msg.sender, amount);
+    }
+    }
+
 
