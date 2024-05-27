@@ -4,9 +4,15 @@ For this project, you will write a smart contract to create your own ERC20 token
 
 # description 
 
+This smart contract is an unique implementation of an ERC20 token written in Solidity with the OpenZeppelin library. The code creates a new token called "ChesterToken" with the symbol "ETH" and provides functionality for minting, transferring, and burning tokens. Here's a comprehensive look at the contract's structure and working properly.
+
 # Getting Started
 
 ### Executing program 
+
+To execute this program, you may use Remix, an online Solidity IDE; to get started, go visit https://remix.ethereum.org/.
+
+Once on the Remix website, click the "+" symbol in the left-hand sidebar to create a new file. Save the file as Types-of-Functions.sol. Copy and paste the code below into the file.
 
 Contract Declaration and Imports:
 
